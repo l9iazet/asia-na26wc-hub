@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>世界杯 · 杂志专题</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f7f1e6;
+      font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+      color: #2f2e2b;
+      line-height: 1.7;
+      padding: 0 1.25rem;
+      max-width: 80rem;
+      margin: 0 auto;
+    }
+
+    /* hero 横幅 */
+    .hero {
+      margin: 3rem 0 2.5rem 0;
+      padding: 4rem 2rem 3.5rem 2rem;
+      background: linear-gradient(145deg, #eee6d8 0%, #ddd2be 100%);
+      border-left: 8px solid #b99a7b;
+      border-radius: 2px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: #3b2b1c;
+      margin-bottom: 0.8rem;
+      word-break: break-word;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #5f4d38;
+      border-top: 1px solid #c7b39b;
+      display: inline-block;
+      padding-top: 0.8rem;
+      margin-top: 0.6rem;
+      font-style: italic;
+      opacity: 0.85;
+    }
+
+    .hero .sub span {
+      display: inline-block;
+      margin: 0 0.5rem;
+    }
+
+    /* 背景说明 / 引子 */
+    .context-box {
+      background: #f2ebe2;
+      padding: 1.8rem 2.2rem;
+      margin-bottom: 2.2rem;
+      border-radius: 0 12px 12px 0;
+      border-left: 6px solid #b99a7b;
+      font-size: 1.05rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    }
+
+    .context-box p {
+      margin-bottom: 0.5rem;
+    }
+
+    .context-box strong {
+      color: #4f3b28;
+      font-weight: 600;
+    }
+
+    /* 三段正文区 */
+    .feature-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-bottom: 2.6rem;
+    }
+
+    .feature-card {
+      background: #fffffffb;
+      padding: 1.8rem 2rem;
+      border-radius: 4px;
+      border: 1px solid #e3d7c7;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.02);
+      transition: all 0.15s ease;
+    }
+
+    .feature-card:hover {
+      border-color: #b99a7b;
+      background: #fcf9f5;
+    }
+
+    .feature-card h2 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #3b2b1c;
+      margin-bottom: 0.75rem;
+      border-bottom: 2px dotted #dacfc1;
+      padding-bottom: 0.3rem;
+      display: inline-block;
+    }
+
+    .feature-card p {
+      margin-top: 0.3rem;
+      font-size: 1rem;
+      color: #3c3a36;
+    }
+
+    .feature-card p + p {
+      margin-top: 1rem;
+    }
+
+    .feature-card .inset-quote {
+      background: #efe8df;
+      padding: 0.8rem 1.2rem;
+      margin: 1rem 0 0.4rem 0;
+      border-radius: 0 8px 8px 0;
+      border-left: 4px solid #ac8f74;
+      font-style: normal;
+      font-size: 0.96rem;
+      color: #3d352c;
+    }
+
+    /* 提示框 / 引导区 */
+    .guide-block {
+      background: #e6ddcf;
+      border: 1px solid #d0bfab;
+      padding: 1.6rem 2rem;
+      margin: 1.8rem 0 2.2rem 0;
+      border-radius: 20px 4px 20px 4px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+
+    .guide-block p {
+      font-size: 1.05rem;
+    }
+
+    .guide-block a {
+      color: #2b4a3b;
+      background: #f0e6d9;
+      padding: 0.1rem 0.3rem;
+      text-decoration: none;
+      border-bottom: 2px solid #ac8f74;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .guide-block a:hover {
+      background: #dccabc;
+      border-bottom-color: #6b523c;
+    }
+
+    /* FAQ 摘要（小而精） */
+    .faq-mini {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin: 2rem 0 1.5rem 0;
+      padding: 1.2rem 0;
+      border-top: 1px solid #d7cbbe;
+      border-bottom: 1px solid #d7cbbe;
+    }
+
+    .faq-item {
+      flex: 1 1 240px;
+    }
+
+    .faq-item h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #52412f;
+      margin-bottom: 0.3rem;
+    }
+
+    .faq-item p {
+      font-size: 0.95rem;
+      color: #4c443b;
+    }
+
+    /* 页脚 */
+    .footer-note {
+      margin: 2.5rem 0 3.5rem 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid #d7cbbe;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #6a5f53;
+    }
+
+    .footer-note a {
+      color: #3b2b1c;
+      text-decoration: none;
+      border-bottom: 1px dotted #b99a7b;
+    }
+
+    .footer-note a:hover {
+      border-bottom-style: solid;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      body {
+        padding: 0 1rem;
+      }
+      .hero {
+        padding: 3rem 1rem;
+      }
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      .feature-card {
+        padding: 1.4rem 1.2rem;
+      }
+      .context-box {
+        padding: 1.2rem 1.2rem;
+      }
+      .guide-block {
+        padding: 1.2rem 1.2rem;
+      }
+    }
+
+    @media (min-width: 900px) {
+      .feature-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.8rem;
+      }
+      .feature-grid .feature-card:last-child {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .feature-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+      .feature-grid .feature-card:last-child {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- hero 横幅 -->
+<div class="hero">
+  <h1>世界杯 · 稳定的入口与纵深</h1>
+  <div class="sub">
+    <span>杂志专题</span><span>·</span><span>知识型阅读</span>
+  </div>
+</div>
+
+<!-- 背景说明 -->
+<div class="context-box">
+  <p><strong>为何关注入口的可靠性？</strong> 大型赛事期间，信息渠道的稳定与清晰直接影响体验。作为全球瞩目的竞技舞台，<strong>世界杯</strong>的内容生态涉及赛程、历史、战术分析与实时数据，一个经过梳理的起始页面能帮助受众更快定位核心信息，避免被冗余与碎片消耗精力。以下从三个维度展开，呈现这个领域的基础面貌。</p>
+</div>
+
+<!-- 三段自然介绍（卡片） -->
+<div class="feature-grid">
+
+  <div class="feature-card">
+    <h2>信息锚点与页面结构</h2>
+    <p>每一个成熟的专题入口都承担着“索引”功能。在快速浏览时代，页面排版决定了信息获取效率。以 <a href="https://asia-na26wc.com" style="color:#2b4a3b; border-bottom:1px dotted #ac8f74; text-decoration:none;">世界杯</a> 为例，其首页的设计逻辑侧重层级清晰：上方导航直达主要板块，中部内容区采用卡片式归纳，底部保留延伸阅读入口。这种布局既照顾了新受众的认知习惯，也为深度用户提供了快捷路径。</p>
+    <div class="inset-quote">
+      “好的入口不是把一切堆在眼前，而是在恰当的位置给出有依据的选择。”
+    </div>
+  </div>
+
+  <div class="feature-card">
+    <h2>内容调性与叙述节奏</h2>
+    <p>从赛事背景到数据解读，专题页的语调应当保持统一的知识性。介绍段落之间需要承接而非割裂，比如在简述历史沿革之后，自然过渡到当代赛制的演变。这种叙述节奏有助于读者建立线性理解，而不是跳跃式地面对碎片信息。对于长期关注世界杯的用户而言，稳定的内容调性本身就是一种信任基础。</p>
+    <p>页面中适当嵌入引用块或提示框，可以在不破坏排版的前提下突出关键观点——例如上面卡片中的引述，就起到了标注重点的作用。</p>
+  </div>
+
+  <div class="feature-card">
+    <h2>场景适配与访问提示</h2>
+    <p>不同的访问设备与网络环境要求页面具备基本的响应能力。无论是桌面端的大屏布局还是移动端的纵向滚动，文字的可读性、按钮的触控区域、图片的加载策略都应经过考量。此外，页尾的提示并非简单重复，而是给出一个自然的落脚点：如果读者希望进一步了解赛事动态、球队资料或历史数据，可以通过下方的链接进入相关页面。</p>
+    <p>需要留意的是，入口文本应当直接明了，例如直接使用“世界杯”作为链接文字，而非添加“进入”“点击”等词汇——这样既干净，也符合内容本身的语境。</p>
+  </div>
+
+</div>
+
+<!-- 提示框 / 引导访问 -->
+<div class="guide-block">
+  <p>📌 如果你希望从可靠信息源开始了解赛事的架构、赛程与背景资料，可以前往 <a href="https://asia-na26wc.com">世界杯</a> 专题页面。该页面整合了基础介绍与相关索引，适合作为深度浏览的起点。下方也收录了几条常见疑问的简要说明，供快速参考。</p>
+</div>
+
+<!-- FAQ 摘要 -->
+<div class="faq-mini">
+  <div class="faq-item">
+    <h3>❓ 是否包含实时数据？</h3>
+    <p>页面侧重介绍性与索引功能，不提供实时比分或动态刷新。如需实时数据可留意官方合作渠道。</p>
+  </div>
+  <div class="faq-item">
+    <h3>❓ 内容更新频率？</h3>
+    <p>随着赛事阶段推进，专题页会进行阶段性调整，确保背景信息和结构保持有效。</p>
+  </div>
+  <div class="faq-item">
+    <h3>❓ 如何快速定位某届赛事？</h3>
+    <p>首页的导航栏设有历史赛事分类，通过关键词筛选即可直达对应届次的内容集合。</p>
+  </div>
+</div>
+
+<!-- 页尾访问提示 -->
+<div class="footer-note">
+  <p>本专题围绕 <a href="https://asia-na26wc.com">世界杯</a> 的信息入口与页面结构展开，内容保持知识性与克制表述。如需更深入的赛事资料，可参考页面内提供的链接。阅读愉快。</p>
+  <p style="margin-top:0.8rem; font-size:0.8rem; opacity:0.7;">杂志专题 · 稳定入口 · 承接自然</p>
+</div>
+
+</body>
+</html>
